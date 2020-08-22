@@ -1,0 +1,26 @@
+
+DROP DATABASE IF EXISTS emp_trackDB;
+
+CREATE DATABASE emp_trackDB;
+
+USE emp_trackDB;
+
+CREATE TABLE Department (
+  id INTEGER(3) PRIMARY KEY AUTO_INCREMENT,
+   Department_name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Role (
+  id INTEGER(3) PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL(10) NOT NULL,
+  department_id INTEGER(3) NULL
+);
+
+CREATE TABLE Employee (
+  id INTEGER(3) PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  role_id INTEGER(3) NOT NULL,
+  manager_id INTEGER(3) NULL
+);
