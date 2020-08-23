@@ -308,6 +308,33 @@ const runQuery = (prompt) => {
         type: 'input',
         name: 'Role',
         message: 'Please enter new Role:'
+      },
+      {
+        type: 'input',
+        name: 'salary',
+        message: 'Please enter new Salary:'
+      },
+      {
+        type: 'list',
+        name: 'Department',
+        choices: [
+          {
+            name: 'Sales',
+            value: 1,
+          },
+          {
+            name: 'Engineering',
+            value: 2,
+          },
+          {
+            name: 'Finance',
+            value: 3,
+          },
+          {
+            name: 'Legal',
+            value: 4,
+          }
+        ]
       }
 
 
@@ -315,7 +342,9 @@ const runQuery = (prompt) => {
       connection.query(
         'UPDATE Role SET ? WHERE ?',
         [{
-          title: name.Role
+          title: name.Role,
+          salary: name.salary,
+          department_id: name.Department
         },
         {
           id: name.Employee
@@ -327,7 +356,7 @@ const runQuery = (prompt) => {
           console.log('\n',
             '------------------------------------------',
             '\n',
-            'new Role *' + name.Role + '* was Added',
+            'Role updated to *' + name.Role + '* ',
             '\n',
             '------------------------------------------',
             '\n')
