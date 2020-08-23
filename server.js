@@ -131,7 +131,7 @@ const runQuery = (prompt) => {
           console.log('\n',
             '------------------------------------------',
             '\n',
-            'new Department *' + name.Rolename + '* was Added',
+            'new Role *' + name.Rolename + '* was Added',
             '\n',
             '------------------------------------------',
             '\n')
@@ -363,6 +363,14 @@ const runQuery = (prompt) => {
         if (err) {
           console.log(err);
         }
+        console.log(
+          '\n',
+          '-----------------------------------',
+          '\n'
+          + '     '+ choisesSet[i] +
+          '\n',
+          '-----------------------------------',
+          '\n')
         console.table(result);
 
         promptUser().then(runQuery);
